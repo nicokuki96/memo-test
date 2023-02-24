@@ -1,0 +1,2 @@
+div#board{grid-gap:10px;display:grid;grid-template-columns:repeat(4,1fr)}.squares{background-color:#cdcdcd;border:1px solid #cdcdcd;box-shadow:2px 2px 2px 1px rgba(0,0,0,.2);height:200px}.pink{background-color:#fa26a0}.blue{background-color:#4c5270}.chili{background-color:#f51720}.gold{background-color:#f8d210}.cyan{background-color:#2ff3e0}.black{background-color:#091115}
+/*# sourceMappingURL=main.e1199018.css.map*/
