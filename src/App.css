@@ -1,0 +1,31 @@
+div#board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+}
+
+.squares{
+  height: 200px;
+  border: 1px solid #cdcdcd;
+  box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 20%);
+  background-color: #cdcdcd;
+}
+
+.pink{
+  background-color: #FA26A0;
+}
+.blue{
+  background-color: #4C5270;
+}
+.chili{
+  background-color: #F51720;
+}
+.gold{
+  background-color: #F8D210;
+}
+.cyan{
+  background-color: #2FF3E0;
+}
+.black{
+  background-color: #091115;
+}
