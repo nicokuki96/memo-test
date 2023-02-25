@@ -18,6 +18,7 @@ const Board = () => {
 
   useEffect(() => {
     apiFetch();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleClose = () => setOpen(false);
@@ -43,13 +44,9 @@ const Board = () => {
     const dataPics = data.photos;
     const imageFromServer = [];
     dataPics.forEach((item) => {
-      console.log(item.src.tiny);
       imageFromServer.push(item.src.tiny);
     });
-
-    //Lo saque del useEffect y lo puse aca para pasarle "imageFromServer", el state no funciona por la promesa
     setRandomPosition(imageFromServer);
-    console.log(imageFromServer);
   };
 
   const setRandomPosition = (imageFromServer) => {
@@ -57,7 +54,7 @@ const Board = () => {
     const random2 = arrayShuffle(imageFromServer);
     let board = random1.concat(random2);
     board = board.map((item, i) => {
-      // Estados: 0 (cerrado), 1 (abierto pero errado), 2 (abierto encontrado)
+      // states: 0 (close), 1 (opened but wrong), 2 (opened pair)
       return {
         id: uuniq(),
         color: item,
@@ -79,7 +76,11 @@ const Board = () => {
         }
         return square;
       });
-      setAllBoard(newBoard);
+      // Block click when the array has 2 in state un 1
+      const twoSelected = newBoard.filter((x) => x.state === 1).length;
+      if (twoSelected < 3) {
+        setAllBoard(newBoard);
+      }
       if (selected) {
         checkPair(item);
       } else {
@@ -109,7 +110,7 @@ const Board = () => {
     setSelected();
     setTimeout(() => {
       setAllBoard(arrSelected);
-    }, 800);
+    }, 1000);
     checkWin();
   };
 
@@ -132,23 +133,21 @@ const Board = () => {
     return (
       <>
         {allBoard.map((item) => (
-          <div>
-            <div
-              style={{
-                backgroundSize: "cover",
-                backgroundRepeat: "no-repeat",
-                backgroundImage: `url(${
-                  (item.state === 1 || item.state === 2) && item.color
-                })`,
-              }}
-              onClick={() => showColor(item)}
-              key={uuniq()}
-              className={`squares ${
+          <div
+            style={{
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+              backgroundImage: `url(${
                 (item.state === 1 || item.state === 2) && item.color
-              }
+              })`,
+            }}
+            onClick={() => showColor(item)}
+            key={uuniq()}
+            className={`squares ${
+              (item.state === 1 || item.state === 2) && item.color
+            }
             `}
-            ></div>
-          </div>
+          ></div>
         ))}
       </>
     );
