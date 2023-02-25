@@ -29,3 +29,9 @@ div#board {
 .black{
   background-color: #091115;
 }
+
+@media (max-width: 600px) {
+  .squares {
+    height: 85px;
+  }
+}
