@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/memo-test/static/css/main.a6ac1d91.css",
-    "main.js": "/memo-test/static/js/main.9bb20901.js",
-    "static/js/581.b5dc55c9.chunk.js": "/memo-test/static/js/581.b5dc55c9.chunk.js",
-    "static/js/252.13770576.chunk.js": "/memo-test/static/js/252.13770576.chunk.js",
+    "main.js": "/memo-test/static/js/main.d0f6e877.js",
+    "static/js/581.b2485291.chunk.js": "/memo-test/static/js/581.b2485291.chunk.js",
+    "static/js/955.e2adea1c.chunk.js": "/memo-test/static/js/955.e2adea1c.chunk.js",
     "index.html": "/memo-test/index.html",
     "main.a6ac1d91.css.map": "/memo-test/static/css/main.a6ac1d91.css.map",
-    "main.9bb20901.js.map": "/memo-test/static/js/main.9bb20901.js.map",
-    "581.b5dc55c9.chunk.js.map": "/memo-test/static/js/581.b5dc55c9.chunk.js.map",
-    "252.13770576.chunk.js.map": "/memo-test/static/js/252.13770576.chunk.js.map"
+    "main.d0f6e877.js.map": "/memo-test/static/js/main.d0f6e877.js.map",
+    "581.b2485291.chunk.js.map": "/memo-test/static/js/581.b2485291.chunk.js.map",
+    "955.e2adea1c.chunk.js.map": "/memo-test/static/js/955.e2adea1c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a6ac1d91.css",
-    "static/js/main.9bb20901.js"
+    "static/js/main.d0f6e877.js"
   ]
 }
