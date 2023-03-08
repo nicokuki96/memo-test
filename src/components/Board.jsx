@@ -4,54 +4,54 @@ import arrayShuffle from "array-shuffle";
 import Popup from "./Popup";
 
 const Board = () => {
-  // const [squares1, setSquares1] = useState([
-  //   "cyan",
-  //   "gold",
-  //   "pink",
-  //   "chili",
-  //   "black",
-  //   "blue",
-  // ]);
+  const [squares1, setSquares1] = useState([
+    "cyan",
+    "gold",
+    "pink",
+    "chili",
+    "black",
+    "blue",
+  ]);
   const [allBoard, setAllBoard] = useState([]);
   const [selected, setSelected] = useState();
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    apiFetch();
+    setRandomPosition();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleClose = () => setOpen(false);
   const handleOpen = () => setOpen(true);
 
-  const randomNumberInRange = (min, max) => {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  };
+  // const randomNumberInRange = (min, max) => {
+  //   return Math.floor(Math.random() * (max - min + 1)) + min;
+  // };
 
-  const apiFetch = async () => {
-    const random = randomNumberInRange(0, 100);
-    const request = await fetch(
-      `https://api.pexels.com/v1/curated?page=${random}}&per_page=6
-    `,
-      {
-        headers: {
-          Authorization:
-            "HbBjqRDPA4Ea4zSvMndnaN8KOoyys3cZWbmcFelwrQha9cLqJa5zJggU",
-        },
-      }
-    );
-    const data = await request.json();
-    const dataPics = data.photos;
-    const imageFromServer = [];
-    dataPics.forEach((item) => {
-      imageFromServer.push(item.src.tiny);
-    });
-    setRandomPosition(imageFromServer);
-  };
+  // const apiFetch = async () => {
+  //   const random = randomNumberInRange(0, 100);
+  //   const request = await fetch(
+  //     `https://api.pexels.com/v1/curated?page=${random}}&per_page=6
+  //   `,
+  //     {
+  //       headers: {
+  //         Authorization:
+  //           "HbBjqRDPA4Ea4zSvMndnaN8KOoyys3cZWbmcFelwrQha9cLqJa5zJggU",
+  //       },
+  //     }
+  //   );
+  //   const data = await request.json();
+  //   const dataPics = data.photos;
+  //   const imageFromServer = [];
+  //   dataPics.forEach((item) => {
+  //     imageFromServer.push(item.src.tiny);
+  //   });
+  //   setRandomPosition(imageFromServer);
+  // };
 
-  const setRandomPosition = (imageFromServer) => {
-    const random1 = arrayShuffle(imageFromServer);
-    const random2 = arrayShuffle(imageFromServer);
+  const setRandomPosition = () => {
+    const random1 = arrayShuffle(squares1);
+    const random2 = arrayShuffle(squares1);
     let board = random1.concat(random2);
     board = board.map((item, i) => {
       // states: 0 (close), 1 (opened but wrong), 2 (opened pair)
@@ -156,12 +156,7 @@ const Board = () => {
   return (
     <div className="board" id="board">
       {renderBoard()}
-      <Popup
-        open={open}
-        apiFetch={apiFetch}
-        allBoard={allBoard}
-        handleClose={handleClose}
-      />
+      <Popup open={open} allBoard={allBoard} handleClose={handleClose} />
     </div>
   );
 };

@@ -17,14 +17,13 @@ const style = {
 };
 
 const Popup = (props) => {
-  const { handleClose, open, allBoard, apiFetch } = props;
+  const { handleClose, open, allBoard } = props;
 
   const resetGame = () => {
     allBoard.forEach((element, index) => {
       element.state = 0;
     });
     handleClose();
-    apiFetch();
   };
 
   return (
